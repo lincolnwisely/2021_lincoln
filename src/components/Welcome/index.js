@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button, Typography } from 'antd';
 
-function Welcome(name) {
+function Welcome(props) {
   const { Title, Text } = Typography;
-
+console.log(props.name)
   return (
     <div>
-
-    <Title level={2}>Welcome, {name}</Title>
-    <Text type="secondary">Lincoln Rules The World</Text>
+      <h1>Hello</h1>
+      <Title level={2}>Welcome, {props.name}</Title>
+    <Text type="secondary"> {props.name} Rules The World</Text>
     </div>
   );
 
