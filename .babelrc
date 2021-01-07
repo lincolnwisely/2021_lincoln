@@ -1,16 +1,11 @@
 {
   "presets": [
-    "stage-0",
-    "latest",
-    "node6",
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-decorators",
-    "transform-es2015-classes",
-    "transform-react-constant-elements",
-    "transform-react-display-name",
-    "transform-react-inline-elements"
+    "@babel/plugin-transform-react-constant-elements",
+    "@babel/plugin-transform-react-display-name",
+    "@babel/plugin-transform-react-inline-elements"
   ]
 }
