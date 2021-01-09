@@ -19,11 +19,11 @@ class App extends Component {
     
     function Aboot() {
       // About
-      return <h2>What the hell!</h2>;
+      return <h2>It works! Hello, world.</h2>;
     }
     
-    function Users() {
-      return <h2>Users</h2>;
+    function Game() {
+      return <h2>game</h2>;
     }
     
     return(
@@ -42,7 +42,7 @@ class App extends Component {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/game">Game</Link>
             </li>
           </ul>
         </nav>
@@ -53,9 +53,10 @@ class App extends Component {
           <Route path="/about">
             <About />
             <Aboot />
+            <Welcome name="Vince"/>
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/game">
+            <Game />
           </Route>
           <Route path="/">
             <Home />
