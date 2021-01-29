@@ -25,12 +25,16 @@ export function unsplashError(data) {
 
 export function fetchUnsplash(query) {
   return function (dispatch, getState) {
-console.log('ello?')
     dispatch(clearUnsplash())
     return getUnsplash(query)
       .then(
         (response) => {
-          return dispatch(storeUnsplash(response.data))
+
+          let originalResponse = response.data.results
+
+          let omfg = originalResponse.concat(originalResponse).sort()
+        
+          return dispatch(storeUnsplash(omfg))
         }
       )
       .catch(
