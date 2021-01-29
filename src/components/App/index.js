@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Welcome from './components/Welcome';
+import Welcome from '../Welcome';
 // import Link from './components/Link';
- import About from './views/About';
- import './scss/styles.scss';
+import Game from '../Game';
+
+//  import About from '../views/About';
+ import '../../scss/styles.scss';
 
 import {
   BrowserRouter as Router,
@@ -19,12 +21,12 @@ class App extends Component {
     
     function Aboot() {
       // About
-      return <h2>It works! Hello, world.</h2>;
+      return <h2>It works! Hello, world. Forget the About VIEW</h2>;
     }
     
-    function Game() {
-      return <h2>game</h2>;
-    }
+    // function Game() {
+    //   return <h2>game</>;
+    // }
     
     return(
       // <div>
@@ -51,7 +53,7 @@ class App extends Component {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/about">
-            <About />
+            {/* <About /> */}
             <Aboot />
             <Welcome name="Vince"/>
           </Route>
