@@ -1,4 +1,5 @@
 import { getUnsplash } from '../../lib/api'
+import { shuffle } from '../../lib/helpers'
 
 export const CLEAR_UNSPLASH = 'CLEAR_UNSPLASH'
 export function clearUnsplash() {
@@ -31,9 +32,8 @@ export function fetchUnsplash(query) {
         (response) => {
 
           let originalResponse = response.data.results
-
-          let omfg = originalResponse.concat(originalResponse).sort()
-        
+          let omfg = shuffle(originalResponse.concat(originalResponse))
+    
           return dispatch(storeUnsplash(omfg))
         }
       )
