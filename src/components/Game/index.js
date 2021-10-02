@@ -1,49 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import * as R from 'ramda';
+import Image from '../Image';
+
 import { fetchUnsplash } from '../../store/actions/unsplash';
 
 function Game() {
   // Utilities
+
   const dispatch = useDispatch()
 
   const images = useSelector(state => R.path(['unsplashImages', 'data'], state))
 
+
+  let query = "dogs"
+
+  const flexStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+  };
+
+
+
   useEffect(() => {
-  dispatch(fetchUnsplash("pie"))
+  dispatch(fetchUnsplash(query))
   }, [])
   
 
-console.log('images!!!', images)
 if (!images) return null; 
 
   return (
     <div>
       <h2>Helloooo</h2>
+      <div style={flexStyle} className="image-container">
         {images && R.map(img => {
-          return <div className={`imgWrap active-`}
-      >
-        <p>{ img.id }</p>
-        <img
+          return  <Image 
+          id={img.id}
           src={img.urls.small}
-        />
-        <p className="credit" 
-        >
-          <a
-            href="https://unsplash.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            via Unsplash
-          </a>
-          <br />
-          <a href={img.links.self} target="_blank" rel="noopener noreferrer">
-            {img.user.username}
-          </a>
-        </p>
-      </div>
-
-      }, images)}
+          href={img.user.links.self}
+          user={img.user}
+          />
+        }, images)}
+        </div>
     </div>
   );  
 }
